@@ -1,10 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -71,19 +68,32 @@ class DemoTest {
     @Test
     void mapObject() {
         List<Student> students = Arrays.asList(
-            new Student("Mary", 30),
+            new Student("Mary", 18),
             new Student("Jack", 27),
-            new Student("Lawrence", 33)
+            new Student("Lawrence", 15)
         );
 
-        List<String> output = subject.mapObject(students);
+        List<String> output = subject.getNames(students);
 
         assertThat(output).isEqualTo(List.of("Mary", "Jack", "Lawrence"));
     }
 
     @Test
     void mapObject_check() {
+        List<Student> students = Arrays.asList(
+            new Student("Mary", 18),
+            new Student("Jack", 27),
+            new Student("Lawrence", 15)
+        );
 
+        List<StudentDto> output = subject.getAdultStudentDtos(students);
+
+        assertThat(output).isEqualTo(
+            Arrays.asList(
+                new StudentDto("Mary", true),
+                new StudentDto("Jack", true)
+            )
+        );
     }
 
     @Test
@@ -102,7 +112,28 @@ class DemoTest {
     }
 
     @Test
-    void finalTest() {
+    void optionalMap() {
+        assertThat(subject.upperCase(Optional.of("data")))
+            .isEqualTo("DATA");
 
+        assertThat(subject.upperCase(Optional.empty()))
+            .isEqualTo(null);
+    }
+
+    @Test
+    void extraCredit() {
+        Optional<List<List<Integer>>> input = Optional.of(
+            List.of(
+                List.of(4, 5, 6),
+                List.of(1, 2, 3),
+                List.of(7, 8, 9)
+            )
+        );
+
+        List<Integer> output = subject.combine_Multiply_sort(input, 10);
+
+        assertThat(output).isEqualTo(
+            List.of(10, 20, 30, 40, 50, 60, 70, 80, 90)
+        );
     }
 }

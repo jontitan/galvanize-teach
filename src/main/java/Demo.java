@@ -1,7 +1,7 @@
 import java.math.BigInteger;
 import java.util.*;
-import java.util.stream.Collectors;
 
+@SuppressWarnings("OptionalUsedAsFieldOrParameterType")
 public class Demo {
 
     public List<String> upperCase(List<String> input) {
@@ -33,7 +33,7 @@ public class Demo {
         return output;
     }
 
-    public List<String> mapObject(List<Student> students) {
+    public List<String> getNames(List<Student> students) {
         List<String> output = new ArrayList<>();
         for (Student student : students) {
             output.add(student.getName());
@@ -46,6 +46,22 @@ public class Demo {
     }
 
     public List<BigInteger> filterByGreaterThan(List<Integer> input, int number) {
+        return null;
+    }
+
+    public List<StudentDto> getAdultStudentDtos(List<Student> students) {
+        return null;
+    }
+
+    public String upperCase(Optional<String> input) {
+        if (input.isPresent()) {
+            return input.get().toUpperCase();
+        } else {
+            return null;
+        }
+    }
+
+    public List<Integer> combine_Multiply_sort(Optional<List<List<Integer>>> input, int multiplyBy) {
         return null;
     }
 }
