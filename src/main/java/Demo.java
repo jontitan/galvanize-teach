@@ -1,4 +1,6 @@
+import java.math.BigInteger;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Demo {
 
@@ -10,11 +12,11 @@ public class Demo {
         return output;
     }
 
-    public List<Integer> filterByOddNumber(List<Integer> input) {
-        List<Integer> output = new ArrayList<>();
+    public List<String> filterByOddNumber(List<Integer> input) {
+        List<String> output = new ArrayList<>();
         for (Integer integer : input) {
             if (integer % 2 == 1) {
-                output.add(integer);
+                output.add(integer.toString());
             }
         }
         return output;
@@ -29,5 +31,21 @@ public class Demo {
             }
         }
         return output;
+    }
+
+    public List<String> mapObject(List<Student> students) {
+        List<String> output = new ArrayList<>();
+        for (Student student : students) {
+            output.add(student.getName());
+        }
+        return output;
+    }
+
+    public List<Integer> addOne(List<Integer> input) {
+        return null;
+    }
+
+    public List<BigInteger> filterByGreaterThan(List<Integer> input, int number) {
+        return null;
     }
 }
