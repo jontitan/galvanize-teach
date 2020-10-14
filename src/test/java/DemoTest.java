@@ -20,7 +20,7 @@ class DemoTest {
         System.out.println();
 
         Stream<Integer> stream = Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9);
-        stream.forEach(System.out::print);
+        stream.forEach(integer -> System.out.print(integer));
     }
 
     @Test
